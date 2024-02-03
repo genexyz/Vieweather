@@ -1,0 +1,27 @@
+.weatherChart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todayWeather {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.forecast {
+  display: flex;
+  overflow-x: auto;
+}
+
+.forecastDay {
+  flex: 0 0 auto;
+  width: 120px;
+  padding: 1rem;
+  text-align: center;
+  border-right: 1px solid #ccc;
+}
+
+.forecastDay:last-child {
+  border-right: none;
+}
