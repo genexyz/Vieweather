@@ -125,6 +125,32 @@ const WeatherChart = ({
             </p>
           </div>
         ))}
+        {dailyForecasts.map((forecast) => (
+          <div
+            key={`${forecast.dt}-mobile`}
+            className={styles.forecastDayMobile}
+          >
+            <div className={styles.cardLeft}>
+              <div className={styles.weatherIconMobile}>
+                <WeatherIcon code={forecast.weather[0].id} />
+              </div>
+              <div className={styles.dateMainMobile}>
+                <p className={styles.date}>
+                  {new Date(forecast.dt * 1000).toLocaleDateString("en-US", {
+                    weekday: "long",
+                    day: "numeric",
+                    month: "short",
+                  })}
+                </p>
+                <p>{forecast.weather[0].main}</p>
+              </div>
+            </div>
+            <div className={styles.temperatureMobile}>
+              {Math.round(forecast.main.temp_max)}° /{" "}
+              {Math.round(forecast.main.temp_min)}°
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

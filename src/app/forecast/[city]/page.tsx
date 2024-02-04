@@ -1,3 +1,4 @@
+import {redirect} from "next/navigation";
 import {GeocodingApiResponse, WeatherApiResponse} from "@/types";
 
 import {OPENWEATHER_KEY} from "@/lib/utils";
@@ -8,11 +9,12 @@ import styles from "./page.module.css";
 const fetchGeocodingData = async (city: string) => {
   const response = await fetch(
     `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${OPENWEATHER_KEY}`,
+    {next: {revalidate: 1800}},
   );
   const data: GeocodingApiResponse = await response.json();
 
   if (data.length === 0) {
-    throw new Error("No results found");
+    redirect("/404");
   }
 
   return data[0];
@@ -21,11 +23,12 @@ const fetchGeocodingData = async (city: string) => {
 const fetchWeatherData = async (lat: number, lon: number) => {
   const response = await fetch(
     `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${OPENWEATHER_KEY}&units=metric`,
+    {next: {revalidate: 1800}},
   );
   const data: WeatherApiResponse = await response.json();
 
   if (data.cod !== "200") {
-    throw new Error(data.message.toString());
+    redirect("/404");
   }
 
   return data;

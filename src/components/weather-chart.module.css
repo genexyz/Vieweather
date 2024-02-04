@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 2rem 0;
+  padding: 2rem;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -14,7 +14,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 0 2rem;
 }
 
 .currentWeatherHeader {
@@ -26,6 +25,12 @@
 .currentWeatherTitle h2 {
   font-size: 2.5rem;
   font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.currentWeatherTitle p {
+  font-size: 1rem;
+  color: #666;
 }
 
 .currentWeatherDetail {
@@ -40,6 +45,7 @@
   font-weight: 700;
   padding-right: 1rem;
   border-right: 2px solid #1f1f1f;
+  color: #e53e3e;
 }
 
 .currentWeatherDetail div {
@@ -48,7 +54,7 @@
 }
 
 .currentWeatherDetailDescription {
-  color: #4f4f4f;
+  color: #666;
 }
 
 .currentWeatherDetailFeelsLike {
@@ -70,17 +76,13 @@
   border-radius: 10px;
   padding: 1rem;
   width: 100%;
+  gap: 1rem;
 }
 
 .currentWeatherExtras div {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-right: 2rem;
-}
-
-.currentWeatherExtras div:last-child {
-  margin-right: 0;
 }
 
 .currentWeatherExtras svg {
@@ -125,13 +127,100 @@
 }
 
 .forecastDay .weatherIcon {
-  width: 50px;
-  height: 50px;
-  margin: 10px auto;
+  padding: 0.5rem;
 }
 
 .forecastDay .temperature {
   font-size: 1.25rem;
   font-weight: bold;
   color: #e53e3e;
+}
+
+.forecastDayMobile {
+  display: none;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  padding: 0.75rem 1rem;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.forecastDayMobile .cardLeft {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.forecastDayMobile .weatherIconMobile {
+  text-align: center;
+}
+
+.forecastDayMobile .dateMainMobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.forecastDayMobile .dateMainMobile .date {
+  font-weight: bold;
+  color: #333;
+}
+
+.forecastDayMobile .temperatureMobile {
+  text-align: right;
+  font-weight: bold;
+  color: #e53e3e;
+}
+
+@media (max-width: 768px) {
+  .weatherChart {
+    padding: 1rem;
+  }
+
+  .currentWeather {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .currentWeatherHeader {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .currentWeatherDetail {
+    margin-bottom: 0;
+  }
+
+  .currentWeatherExtras {
+    flex-direction: column;
+    justify-content: center;
+    width: fit-content;
+    align-items: center;
+  }
+
+  .currentWeatherExtras div {
+    width: 100%;
+  }
+
+  .currentWeatherExtras svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .forecast {
+    margin-top: 0.5rem;
+  }
+
+  .forecastDay {
+    display: none;
+  }
+
+  .forecastDayMobile {
+    display: flex;
+  }
 }
