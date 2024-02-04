@@ -32,7 +32,8 @@ const fetchWeatherData = async (lat: number, lon: number) => {
 };
 
 const Page = async ({params}: {params: {city: string}}) => {
-  const geocodingData = await fetchGeocodingData(params.city);
+  const parsedCity = params.city.replace(/%20/g, " ");
+  const geocodingData = await fetchGeocodingData(parsedCity);
 
   const weatherData = await fetchWeatherData(
     geocodingData.lat,
@@ -41,8 +42,8 @@ const Page = async ({params}: {params: {city: string}}) => {
 
   return (
     <main className={styles.main}>
-      <h1>Weather Forecast for {params.city}</h1>
-      <WeatherChart weatherData={weatherData} />
+      <h1>5 day forecast</h1>
+      <WeatherChart weatherData={weatherData} city={parsedCity} />
     </main>
   );
 };

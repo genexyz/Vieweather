@@ -5,16 +5,18 @@
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
-  background: #f0f0f0;
 }
 
-.title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.description {
-  font-size: 1.2rem;
+.main h1 {
+  font-size: 3rem;
   margin-bottom: 2rem;
-  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 0.5rem;
+  }
+  .main h1 {
+    font-size: 2rem;
+  }
 }

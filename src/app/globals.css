@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -12,7 +11,48 @@ body {
 }
 
 .root-body {
-  min-height: 100vh; 
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; 
+  -moz-osx-font-smoothing: grayscale;
 }
+
+.icon {
+  width: 2em;
+  height: 2em;
+  fill: currentColor;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -10;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  background-image: radial-gradient(
+    125% 125% at 50% 10%,
+    #fff 20%,
+    rgb(33, 53, 235) 100%
+  );
+}
+
+/* .background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -10;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 24px;
+  padding-right: 5px;
+  padding-bottom: 24px;
+  padding-left: 5px;
+  background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%);
+} */

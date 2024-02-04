@@ -2,26 +2,136 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  padding: 2rem 0;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
 }
 
-.todayWeather {
-  text-align: center;
-  margin-bottom: 2rem;
+.currentWeather {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.currentWeatherHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.currentWeatherTitle h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.currentWeatherDetail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.currentWeatherDetail h3 {
+  font-size: 4rem;
+  font-weight: 700;
+  padding-right: 1rem;
+  border-right: 2px solid #1f1f1f;
+}
+
+.currentWeatherDetail div {
+  padding-left: 1rem;
+  line-height: 1.75;
+}
+
+.currentWeatherDetailDescription {
+  color: #4f4f4f;
+}
+
+.currentWeatherDetailFeelsLike {
+  font-weight: 500;
+}
+
+.currentWeatherDetail svg {
+  margin-left: 1rem;
+  width: 75px;
+  height: 75px;
+}
+
+.currentWeatherExtras {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 1rem;
+  border: 2px solid #1f1f1f;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 100%;
+}
+
+.currentWeatherExtras div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 2rem;
+}
+
+.currentWeatherExtras div:last-child {
+  margin-right: 0;
+}
+
+.currentWeatherExtras svg {
+  margin-right: 1rem;
 }
 
 .forecast {
   display: flex;
-  overflow-x: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 2rem;
 }
 
 .forecastDay {
-  flex: 0 0 auto;
-  width: 120px;
+  flex: 1;
+  min-width: 180px;
+  max-width: 220px;
   padding: 1rem;
   text-align: center;
-  border-right: 1px solid #ccc;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.forecastDay:last-child {
-  border-right: none;
+.forecastDay:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.forecastDay p {
+  margin: 0.5rem 0;
+}
+
+.forecastDay .date {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.forecastDay .weatherIcon {
+  width: 50px;
+  height: 50px;
+  margin: 10px auto;
+}
+
+.forecastDay .temperature {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #e53e3e;
 }
