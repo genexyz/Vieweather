@@ -13,15 +13,15 @@
 }
 
 .temperatureCold {
-  color: blue !important;
+  color: var(--temperature-color-cold) !important;
 }
 
 .temperatureNormal {
-  color: green !important;
+  color: var(--temperature-color-normal) !important;
 }
 
 .temperatureHot {
-  color: red !important;
+  color: var(--temperature-color-hot) !important;
 }
 
 .currentWeather {

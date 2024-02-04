@@ -26,8 +26,22 @@
   color: var(--text-color);
 }
 
-.modeToggle {
+.togglers {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .searchForm {
+    display: none;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+  }
+
+  .togglers {
+    gap: 0.5rem;
+  }
 }
