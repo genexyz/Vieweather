@@ -3,6 +3,7 @@ import {GeocodingApiResponse, WeatherApiResponse} from "@/types";
 
 import {OPENWEATHER_KEY} from "@/lib/utils";
 import WeatherChart from "@/components/weather-chart";
+import {Unit} from "@/app/providers";
 
 import styles from "./page.module.css";
 
@@ -20,9 +21,9 @@ const fetchGeocodingData = async (city: string) => {
   return data[0];
 };
 
-const fetchWeatherData = async (lat: number, lon: number) => {
+const fetchWeatherData = async (lat: number, lon: number, unit: Unit) => {
   const response = await fetch(
-    `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${OPENWEATHER_KEY}&units=metric`,
+    `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${OPENWEATHER_KEY}&units=${unit}`,
     {next: {revalidate: 1800}},
   );
   const data: WeatherApiResponse = await response.json();
@@ -34,19 +35,30 @@ const fetchWeatherData = async (lat: number, lon: number) => {
   return data;
 };
 
-const Page = async ({params}: {params: {city: string}}) => {
+const Page = async ({
+  params,
+  searchParams,
+}: {
+  params: {city: string};
+  searchParams: {unit: Unit};
+}) => {
   const parsedCity = params.city.replace(/%20/g, " ");
   const geocodingData = await fetchGeocodingData(parsedCity);
 
   const weatherData = await fetchWeatherData(
     geocodingData.lat,
     geocodingData.lon,
+    searchParams.unit,
   );
 
   return (
     <main className={styles.main}>
       <h1>5 day forecast</h1>
-      <WeatherChart weatherData={weatherData} city={parsedCity} />
+      <WeatherChart
+        weatherData={weatherData}
+        city={parsedCity}
+        unit={searchParams.unit}
+      />
     </main>
   );
 };

@@ -87,3 +87,24 @@ export const capitalizeFirstLetterPerWord = (string: string) =>
 
 export const capitalizeFirstLetter = (string: string) =>
   string.charAt(0).toUpperCase() + string.slice(1);
+
+export const getTemperatureRangeClass = (
+  temp: number,
+  unit: "imperial" | "metric" | "standard",
+) => {
+  let tempInCelsius = temp;
+
+  if (unit === "imperial") {
+    tempInCelsius = ((temp - 32) * 5) / 9;
+  } else if (unit === "standard") {
+    tempInCelsius = temp - 273.15;
+  }
+
+  if (tempInCelsius <= 11) {
+    return "temperatureCold";
+  } else if (tempInCelsius > 11 && tempInCelsius <= 25) {
+    return "temperatureNormal";
+  } else {
+    return "temperatureHot";
+  }
+};

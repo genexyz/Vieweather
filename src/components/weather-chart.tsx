@@ -1,7 +1,11 @@
-import React from "react";
 import {WeatherApiResponse, WeatherForecast} from "@/types";
 
-import {capitalizeFirstLetter, capitalizeFirstLetterPerWord} from "@/lib/utils";
+import {
+  capitalizeFirstLetter,
+  capitalizeFirstLetterPerWord,
+  getTemperatureRangeClass,
+} from "@/lib/utils";
+import {Unit} from "@/app/providers";
 
 import Humiditycon from "./icons/humidity";
 import PressureIcon from "./icons/pressure";
@@ -56,9 +60,11 @@ const getDailyForecasts = (
 const WeatherChart = ({
   weatherData,
   city,
+  unit,
 }: {
   weatherData: WeatherApiResponse;
   city: string;
+  unit: Unit;
 }) => {
   const currentWeather = weatherData.list[0];
   const currentDate = currentWeather.dt_txt.split(" ")[0]; // Get current date as 'YYYY-MM-DD'
@@ -73,16 +79,28 @@ const WeatherChart = ({
         <div className={styles.currentWeatherHeader}>
           <div className={styles.currentWeatherTitle}>
             <h2>{capitalizeFirstLetterPerWord(city)}</h2>
-            <p>{new Date(currentWeather.dt * 1000).toLocaleString()}</p>
+            <p>{new Date(currentWeather.dt * 1000).toLocaleString("en-US")}</p>
           </div>
           <div className={styles.currentWeatherDetail}>
-            <h3>{currentWeather.main.temp.toFixed()}°</h3>
+            <h3
+              className={
+                styles[getTemperatureRangeClass(currentWeather.main.temp, unit)]
+              }
+            >
+              {currentWeather.main.temp.toFixed()}°
+              {unit === "imperial" ? "F" : unit === "metric" ? "C" : "K"}
+            </h3>
             <div>
               <p className={styles.currentWeatherDetailDescription}>
                 {capitalizeFirstLetter(currentWeather.weather[0].description)}
               </p>
               <p className={styles.currentWeatherDetailFeelsLike}>
-                Feels like: {currentWeather.main.feels_like.toFixed()}°{" "}
+                Feels like:{" "}
+                <span
+                  className={`${styles.temperature} ${styles[getTemperatureRangeClass(currentWeather.main.feels_like, unit)]}`}
+                >
+                  {currentWeather.main.feels_like.toFixed()}°
+                </span>
               </p>
             </div>
             <WeatherIcon code={currentWeather.weather[0].id} />
@@ -120,8 +138,21 @@ const WeatherChart = ({
             </div>
             <p>{forecast.weather[0].main}</p>
             <p className={styles.temperature}>
-              {Math.round(forecast.main.temp_max)}° /{" "}
-              {Math.round(forecast.main.temp_min)}°
+              <span
+                className={
+                  styles[getTemperatureRangeClass(forecast.main.temp_max, unit)]
+                }
+              >
+                {Math.round(forecast.main.temp_max)}°
+              </span>{" "}
+              /{" "}
+              <span
+                className={
+                  styles[getTemperatureRangeClass(forecast.main.temp_min, unit)]
+                }
+              >
+                {Math.round(forecast.main.temp_min)}°
+              </span>
             </p>
           </div>
         ))}
@@ -146,8 +177,21 @@ const WeatherChart = ({
               </div>
             </div>
             <div className={styles.temperatureMobile}>
-              {Math.round(forecast.main.temp_max)}° /{" "}
-              {Math.round(forecast.main.temp_min)}°
+              <span
+                className={
+                  styles[getTemperatureRangeClass(forecast.main.temp_max, unit)]
+                }
+              >
+                {Math.round(forecast.main.temp_max)}°
+              </span>{" "}
+              /{" "}
+              <span
+                className={
+                  styles[getTemperatureRangeClass(forecast.main.temp_min, unit)]
+                }
+              >
+                {Math.round(forecast.main.temp_min)}°
+              </span>
             </div>
           </div>
         ))}

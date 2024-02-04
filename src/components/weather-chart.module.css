@@ -4,10 +4,24 @@
   align-items: center;
   width: 100%;
   padding: 2rem;
-  background-color: #fff;
+  background: color-mix(in srgb, var(--background-color), #0000 30%);
+  backdrop-filter: blur(9.1px);
+  -webkit-backdrop-filter: blur(9.1px);
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px var(--shadow-color);
   max-width: 1200px;
+}
+
+.temperatureCold {
+  color: blue !important;
+}
+
+.temperatureNormal {
+  color: green !important;
+}
+
+.temperatureHot {
+  color: red !important;
 }
 
 .currentWeather {
@@ -30,7 +44,7 @@
 
 .currentWeatherTitle p {
   font-size: 1rem;
-  color: #666;
+  color: var(--text-color-light);
 }
 
 .currentWeatherDetail {
@@ -44,8 +58,7 @@
   font-size: 4rem;
   font-weight: 700;
   padding-right: 1rem;
-  border-right: 2px solid #1f1f1f;
-  color: #e53e3e;
+  border-right: 2px solid var(--text-color-light);
 }
 
 .currentWeatherDetail div {
@@ -54,7 +67,7 @@
 }
 
 .currentWeatherDetailDescription {
-  color: #666;
+  color: var(--text-color-light);
 }
 
 .currentWeatherDetailFeelsLike {
@@ -72,7 +85,7 @@
   justify-content: space-around;
   align-items: center;
   margin-bottom: 1rem;
-  border: 2px solid #1f1f1f;
+  border: 2px solid var(--text-color-light);
   border-radius: 10px;
   padding: 1rem;
   width: 100%;
@@ -89,6 +102,10 @@
   margin-right: 1rem;
 }
 
+.temperature {
+  font-weight: bold;
+}
+
 .forecast {
   display: flex;
   flex-wrap: wrap;
@@ -103,9 +120,9 @@
   max-width: 220px;
   padding: 1rem;
   text-align: center;
-  background-color: #f9f9f9;
+  background-color: color-mix(in srgb, var(--text-color), #0000 96%);
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px var(--wide-shadow-color);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
@@ -113,7 +130,7 @@
 
 .forecastDay:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 15px var(--ultra-wide-shadow-color);
 }
 
 .forecastDay p {
@@ -123,7 +140,7 @@
 .forecastDay .date {
   font-size: 1rem;
   font-weight: bold;
-  color: #333;
+  color: var(--text-color);
 }
 
 .forecastDay .weatherIcon {
@@ -133,14 +150,15 @@
 .forecastDay .temperature {
   font-size: 1.25rem;
   font-weight: bold;
-  color: #e53e3e;
 }
 
 .forecastDayMobile {
   display: none;
-  background-color: #f9f9f9;
+  background: color-mix(in srgb, var(--background-color), #0000 70%);
+  backdrop-filter: blur(9.1px);
+  -webkit-backdrop-filter: blur(9.1px);
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px var(--shadow-color);
   padding: 0.75rem 1rem;
   align-items: center;
   gap: 1rem;
@@ -156,7 +174,10 @@
 }
 
 .forecastDayMobile .weatherIconMobile {
+  display: flex;
   text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .forecastDayMobile .dateMainMobile {
@@ -167,23 +188,25 @@
 
 .forecastDayMobile .dateMainMobile .date {
   font-weight: bold;
-  color: #333;
+  color: var(--text-color);
 }
 
 .forecastDayMobile .temperatureMobile {
   text-align: right;
   font-weight: bold;
-  color: #e53e3e;
 }
 
 @media (max-width: 768px) {
   .weatherChart {
-    padding: 1rem;
+    padding: 0rem;
+    background: none;
+    box-shadow: none;
   }
 
   .currentWeather {
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
 
   .currentWeatherHeader {

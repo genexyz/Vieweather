@@ -2,10 +2,14 @@
 
 import {useRouter} from "next/navigation";
 
+import {useUnit} from "@/app/providers";
+
 import styles from "./search-form.module.css";
 
 const SearchForm = () => {
   const router = useRouter();
+
+  const {unit} = useUnit();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -19,7 +23,7 @@ const SearchForm = () => {
     const city = input.value;
     console.log(city);
 
-    router.push(`/forecast/${encodeURIComponent(city)}`);
+    router.push(`/forecast/${encodeURIComponent(city)}?unit=${unit}`);
   };
 
   return (

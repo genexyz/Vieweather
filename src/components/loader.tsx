@@ -1,6 +1,8 @@
+import styles from "./loader.module.css";
+
 const Loader = () => (
-  <div className="loaderContainer">
-    <span className="loader"></span>
+  <div className={styles.container}>
+    <span className={styles.loader}></span>
   </div>
 );
 

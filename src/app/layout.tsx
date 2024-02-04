@@ -3,6 +3,10 @@ import {Inter} from "next/font/google";
 
 import "./globals.css";
 
+import Navbar from "@/components/navbar";
+
+import {ThemeProvider, UnitProvider} from "./providers";
+
 const inter = Inter({subsets: ["latin"]});
 
 export const metadata: Metadata = {
@@ -15,8 +19,15 @@ const RootLayout = ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => (
-  <html lang="en">
-    <body className={`${inter.className} root-body`}>{children}</body>
+  <html lang="en" suppressHydrationWarning>
+    <body className={`${inter.className} root-body`}>
+      <ThemeProvider>
+        <UnitProvider>
+          <Navbar />
+          {children}
+        </UnitProvider>
+      </ThemeProvider>
+    </body>
   </html>
 );
 
