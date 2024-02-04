@@ -67,7 +67,7 @@ const WeatherChart = ({
   unit: Unit;
 }) => {
   const currentWeather = weatherData.list[0];
-  const currentDate = currentWeather.dt_txt.split(" ")[0]; // Get current date as 'YYYY-MM-DD'
+  const currentDate = new Date().toISOString().split("T")[0]; // Get current date as 'YYYY-MM-DD'
   const dailyForecasts = getDailyForecasts(
     weatherData.list.slice(1),
     currentDate,

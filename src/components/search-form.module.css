@@ -15,6 +15,11 @@
   transition: border-color 0.3s ease;
 }
 
+.navbarForm .searchInput {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--text-color);
+}
+
 .searchInput:focus {
   border-color: color-mix(in srgb, var(--accent-color), var(--text-color) 50%);
   outline: none;

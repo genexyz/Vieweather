@@ -6,7 +6,11 @@ import {useUnit} from "@/app/providers";
 
 import styles from "./search-form.module.css";
 
-const SearchForm = () => {
+const SearchForm = ({
+  withButton = true,
+}: {
+  withButton?: boolean;
+} = {}) => {
   const router = useRouter();
 
   const {unit} = useUnit();
@@ -27,7 +31,10 @@ const SearchForm = () => {
   };
 
   return (
-    <form className={styles.searchForm} onSubmit={handleSubmit}>
+    <form
+      className={`${styles.searchForm} ${!withButton && styles.navbarForm}`}
+      onSubmit={handleSubmit}
+    >
       <input
         type="text"
         name="city"
@@ -35,9 +42,11 @@ const SearchForm = () => {
         placeholder="Enter city or ZIP code"
         className={styles.searchInput}
       />
-      <button type="submit" className={styles.searchButton}>
-        Search
-      </button>
+      {withButton && (
+        <button type="submit" className={styles.searchButton}>
+          Search
+        </button>
+      )}
     </form>
   );
 };
