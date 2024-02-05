@@ -6,6 +6,7 @@ import {useFormatter, useTranslations} from "next-intl";
 import {
   capitalizeFirstLetter,
   capitalizeFirstLetterPerWord,
+  formatCityName,
   getTemperatureRangeClass,
 } from "@/lib/utils";
 import {Unit} from "@/app/providers";
@@ -85,7 +86,7 @@ const WeatherChart = ({
       <div className={styles.currentWeather}>
         <div className={styles.currentWeatherHeader}>
           <div className={styles.currentWeatherTitle}>
-            <h2>{capitalizeFirstLetterPerWord(city)}</h2>
+            <h2>{formatCityName(city)}</h2>{" "}
             <p>
               {capitalizeFirstLetter(
                 format.dateTime(new Date(currentWeather.dt * 1000), {

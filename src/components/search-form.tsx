@@ -5,6 +5,7 @@ import {useTranslations} from "next-intl";
 
 import {useUnit} from "@/app/providers";
 
+import QuestionIcon from "./icons/question";
 import styles from "./search-form.module.css";
 
 const SearchForm = ({withButton = true}: {withButton?: boolean}) => {
@@ -17,14 +18,13 @@ const SearchForm = ({withButton = true}: {withButton?: boolean}) => {
 
     const {elements} = event.currentTarget;
 
-    const input = elements.namedItem("city");
+    const input = elements.namedItem("location");
     const isInput = input instanceof HTMLInputElement;
     if (!isInput || input == null) return;
 
-    const city = input.value;
-    console.log(city);
+    const location = input.value;
 
-    router.push(`/forecast/${encodeURIComponent(city)}?unit=${unit}`);
+    router.push(`/forecast/${encodeURIComponent(location)}?unit=${unit}`);
   };
 
   return (
@@ -32,15 +32,36 @@ const SearchForm = ({withButton = true}: {withButton?: boolean}) => {
       className={`${styles.searchForm} ${!withButton && styles.navbarForm}`}
       onSubmit={handleSubmit}
     >
-      <input
-        type="text"
-        name="city"
-        required
-        placeholder={t("searchForm.placeholder")}
-        aria-label={t("searchForm.ariaLabel")}
-        aria-required="true"
-        className={styles.searchInput}
-      />
+      <div className={styles.inputContainer}>
+        <input
+          type="text"
+          name="location"
+          required
+          placeholder={t("searchForm.placeholder")}
+          aria-label={t("searchForm.ariaLabel")}
+          aria-required="true"
+          className={styles.searchInput}
+        />
+        <div className={styles.questionIcon} tabIndex={0}>
+          <QuestionIcon />
+        </div>
+        <div className={styles.tooltip}>
+          <div className={styles.tooltipArrow}></div>
+          <div className={styles.tooltipContent}>
+            <p className={styles.tooltipHeading}>{t("tooltip.citySearch")}</p>
+            <p className={styles.tooltipParagraph}>
+              {t("tooltip.cityTooltipText")}
+            </p>
+            <p className={styles.tooltipParagraph}>
+              {t("tooltip.cityUSStateTooltipText")}
+            </p>
+            <p className={styles.tooltipHeading}>{t("tooltip.zipSearch")}</p>
+            <p className={styles.tooltipParagraph}>
+              {t("tooltip.zipTooltipText")}
+            </p>
+          </div>
+        </div>
+      </div>
       {withButton && (
         <button type="submit" className={styles.searchButton}>
           {t("searchForm.buttonText")}

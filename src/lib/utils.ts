@@ -108,3 +108,21 @@ export const getTemperatureRangeClass = (
     return "temperatureHot";
   }
 };
+
+// Validating all kind of zip codes is a whole different task, will limit to checking if it has digits for this usecase
+export const isZipCode = (input: string) => {
+  const hasDigits = /\d/.test(input);
+
+  return hasDigits;
+};
+
+export const formatCityName = (cityName: string) =>
+  cityName
+    .split(",")
+    .map(
+      (part, index) =>
+        index === 0
+          ? capitalizeFirstLetterPerWord(part.trim()) // City name
+          : part.trim().toUpperCase(), // State/Country code
+    )
+    .join(", ");

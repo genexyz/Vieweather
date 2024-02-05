@@ -39,5 +39,12 @@
     "currentLocale": "Idioma actual: {locale}",
     "en": "English",
     "es": "Español"
+  },
+  "tooltip": {
+    "citySearch": "Búsqueda por Ciudad",
+    "cityTooltipText": "Escribe el nombre de la ciudad, seguido opcionalmente por el código del país (por ejemplo, 'Paris' o 'Paris,FR').",
+    "cityUSStateTooltipText": "Para ciudades de EE.UU., puedes incluir opcionalmente el estado. Si incluyes el estado, el código del país también es necesario (por ejemplo, 'Arlington,TX,US').",
+    "zipSearch": "Búsqueda por Código Postal",
+    "zipTooltipText": "Ingresa el código postal seguido por el código del país (por ejemplo, '90210,US')."
   }
 }

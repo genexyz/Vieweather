@@ -10,9 +10,10 @@
   border: 2px solid var(--accent-color);
   border-radius: 0.375rem;
   width: 100%;
-  min-width: 290px;
+  min-width: 310px;
   box-shadow: 0 2px 4px var(--shadow-color);
   transition: border-color 0.3s ease;
+  padding-right: 2.5rem;
 }
 
 .navbarForm .searchInput {
@@ -46,6 +47,90 @@
     var(--accent-color),
     var(--text-color) 50%
   );
+}
+
+.inputContainer {
+  position: relative;
+}
+
+.questionIcon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.75;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.questionIcon:hover {
+  opacity: 1;
+}
+
+.questionIcon svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: fill 0.3s ease;
+}
+
+.tooltip {
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%) translateY(100%);
+  width: 100%;
+  padding: 1rem;
+  background: var(--background-color);
+  color: var(--text-color);
+  border-radius: 5px;
+  text-align: left;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease;
+  transition-delay: 0s, 0.3s, 0s;
+}
+
+.tooltipArrow {
+  position: absolute;
+  left: 50%;
+  top: -5px;
+  transform: translateX(-50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  background-color: var(--background-color);
+}
+
+.questionIcon:hover + .tooltip,
+.questionIcon:focus + .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(calc(100% + 10px));
+  transition-delay: 0s, 0s, 0s;
+}
+
+.tooltipContent {
+  font-size: 0.875rem;
+}
+
+.tooltipHeading {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.tooltipParagraph {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+  color: var(--text-color-light);
+}
+
+.tooltipParagraph:last-child {
+  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {

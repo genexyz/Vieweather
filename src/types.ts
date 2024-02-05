@@ -79,11 +79,21 @@ type LocalNames = {
   [key: string]: string;
 };
 
-export type GeocodingApiResponse = Array<{
+export type GeocodingCity = {
   name: string;
   local_names: LocalNames;
   lat: number;
   lon: number;
   country: string;
   state?: string;
-}>;
+};
+
+export type GeocodingCityApiResponse = GeocodingCity[];
+
+export type GeocodingZipApiResponse = {
+  zip: string;
+  name: string;
+  lat: number;
+  lon: number;
+  country: string;
+};

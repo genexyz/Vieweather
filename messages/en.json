@@ -39,5 +39,12 @@
     "currentLocale": "Current locale: {locale}",
     "en": "English",
     "es": "Español"
+  },
+  "tooltip": {
+    "citySearch": "City Search",
+    "cityTooltipText": "Type the city name, optionally followed by the country code (e.g., 'Paris' or 'Paris,FR').",
+    "cityUSStateTooltipText": "For US cities, you may optionally include the state. If you include the state, the country code is also required (e.g., 'Arlington,TX,US').",
+    "zipSearch": "ZIP Code Search",
+    "zipTooltipText": "Enter the ZIP code followed by the country code (e.g., '90210,US')."
   }
 }
