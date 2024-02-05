@@ -2,8 +2,9 @@ import {useEffect, useRef, useState} from "react";
 import {useTranslations} from "next-intl";
 import {useTheme} from "next-themes";
 
-import ClearIcon from "./icons/clear";
-import MoonIcon from "./icons/moon";
+import ClearIcon from "@/components/icons/clear";
+import MoonIcon from "@/components/icons/moon";
+
 import styles from "./mode-toggle.module.css";
 
 export const ModeToggle = () => {

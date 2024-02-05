@@ -97,3 +97,6 @@ export type GeocodingZipApiResponse = {
   lon: number;
   country: string;
 };
+
+// Others
+export type Unit = "imperial" | "metric" | "standard";

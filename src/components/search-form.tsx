@@ -3,9 +3,9 @@
 import {useRouter} from "@/navigation";
 import {useTranslations} from "next-intl";
 
+import QuestionIcon from "@/components/icons/question";
 import {useUnit} from "@/app/providers";
 
-import QuestionIcon from "./icons/question";
 import styles from "./search-form.module.css";
 
 const SearchForm = ({withButton = true}: {withButton?: boolean}) => {

@@ -3,13 +3,13 @@ import {
   GeocodingCity,
   GeocodingCityApiResponse,
   GeocodingZipApiResponse,
+  Unit,
   WeatherApiResponse,
 } from "@/types";
 import {getTranslations, unstable_setRequestLocale} from "next-intl/server";
 
 import {isZipCode, OPENWEATHER_KEY} from "@/lib/utils";
 import WeatherChart from "@/components/weather-chart";
-import {Unit} from "@/app/providers";
 
 import styles from "./page.module.css";
 

@@ -3,13 +3,13 @@
 import {Link, usePathname} from "@/navigation";
 import {useTranslations} from "next-intl";
 
-import {ModeToggle} from "@/components/mode-toggle";
+import LogoIcon from "@/components/icons/logo";
+import SearchForm from "@/components/search-form";
+import {LocaleToggle} from "@/components/togglers/locale-toggle";
+import {ModeToggle} from "@/components/togglers/mode-toggle";
+import {UnitToggle} from "@/components/togglers/unit-toggle";
 
-import LogoIcon from "./icons/logo";
-import {LocaleToggle} from "./locale-toggle";
 import styles from "./navbar.module.css";
-import SearchForm from "./search-form";
-import {UnitToggle} from "./unit-toggle";
 
 const Navbar = () => {
   const pathname = usePathname();

@@ -1,6 +1,6 @@
 "use client";
 
-import {WeatherApiResponse, WeatherForecast} from "@/types";
+import {Unit, WeatherApiResponse, WeatherForecast} from "@/types";
 import {useFormatter, useTranslations} from "next-intl";
 
 import {
@@ -9,11 +9,10 @@ import {
   formatCityName,
   getTemperatureRangeClass,
 } from "@/lib/utils";
-import {Unit} from "@/app/providers";
+import Humiditycon from "@/components/icons/humidity";
+import PressureIcon from "@/components/icons/pressure";
+import WindIcon from "@/components/icons/wind";
 
-import Humiditycon from "./icons/humidity";
-import PressureIcon from "./icons/pressure";
-import WindIcon from "./icons/wind";
 import styles from "./weather-chart.module.css";
 import WeatherIcon from "./weather-icon";
 

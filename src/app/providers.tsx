@@ -7,10 +7,10 @@ import React, {
   useEffect,
   useState,
 } from "react";
+import {Unit} from "@/types";
 import {ThemeProvider as NextThemesProvider} from "next-themes";
 import {type ThemeProviderProps} from "next-themes/dist/types";
 
-export type Unit = "imperial" | "metric" | "standard";
 type UnitContextType = {
   unit: Unit;
   setUnit: (Unit: Unit) => void;

@@ -2,9 +2,10 @@
 
 import {useEffect, useRef, useState} from "react";
 import {usePathname, useRouter} from "@/navigation";
+import {Unit} from "@/types";
 import {useTranslations} from "next-intl";
 
-import {Unit, useUnit} from "@/app/providers";
+import {useUnit} from "@/app/providers";
 
 import styles from "./unit-toggle.module.css";
 
