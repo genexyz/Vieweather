@@ -139,7 +139,8 @@ const WeatherChart = ({
           <div>
             <WindIcon className="icon" />
             <p>
-              {t("forecast.wind")}: {currentWeather.wind.speed} m/s
+              {t("forecast.wind")}: {currentWeather.wind.speed}{" "}
+              {unit === "metric" ? "m/s" : "mph"}
             </p>
           </div>
         </div>

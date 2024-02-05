@@ -15,6 +15,11 @@
   justify-content: center;
 }
 
+.toggleButton:focus-visible {
+  outline: 2px solid var(--text-color-light);
+  outline-offset: 2px;
+}
+
 .sunIcon,
 .moonIcon {
   position: absolute;
