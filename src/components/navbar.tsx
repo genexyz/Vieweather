@@ -5,6 +5,7 @@ import {useTranslations} from "next-intl";
 
 import {ModeToggle} from "@/components/mode-toggle";
 
+import LogoIcon from "./icons/logo";
 import {LocaleToggle} from "./locale-toggle";
 import styles from "./navbar.module.css";
 import SearchForm from "./search-form";
@@ -17,9 +18,12 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.container}>
-        <div className={styles.logo}>
-          <Link href="/">{t("navbar.title")}</Link>
-        </div>
+        <Link href="/">
+          <div className={styles.logo}>
+            <LogoIcon className={styles.logoIcon} />
+            <p>{t("navbar.title")}</p>
+          </div>
+        </Link>
         {!(pathname === "/") && (
           <div className={styles.searchForm}>
             <SearchForm withButton={false} />

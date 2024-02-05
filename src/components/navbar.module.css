@@ -24,6 +24,16 @@
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.logoIcon {
+  width: 2rem;
+  height: 2rem;
+  fill: var(--temperature-color-hot);
 }
 
 .togglers {
@@ -39,6 +49,10 @@
 
   .logo {
     font-size: 1.25rem;
+  }
+
+  .logo p {
+    display: none;
   }
 
   .togglers {

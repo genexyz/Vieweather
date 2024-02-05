@@ -10,7 +10,7 @@
   --temperature-color-hot: #e53e3e;
   --temperature-color-cold: #007bff;
   --temperature-color-normal: #007618;
-  --accent-color: #007bff;
+  --accent-color: #e53e3e;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --wide-shadow-color: rgba(0, 0, 0, 0.2);
   --ultra-wide-shadow-color: rgba(0, 0, 0, 0.3);
@@ -28,7 +28,7 @@ html[data-theme="light"] {
   --temperature-color-hot: #e53e3e;
   --temperature-color-cold: #007bff;
   --temperature-color-normal: #007618;
-  --accent-color: #007bff;
+  --accent-color: #e53e3e;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --wide-shadow-color: rgba(0, 0, 0, 0.2);
   --ultra-wide-shadow-color: rgba(0, 0, 0, 0.3);
@@ -46,7 +46,7 @@ html[data-theme="dark"] {
   --temperature-color-hot: #e53e3e;
   --temperature-color-cold: #007bff;
   --temperature-color-normal: #007618;
-  --accent-color: #007bff;
+  --accent-color: #e53e3e;
   --shadow-color: rgba(255, 255, 255, 0.1);
   --wide-shadow-color: rgba(255, 255, 255, 0.2);
   --ultra-wide-shadow-color: rgba(255, 255, 255, 0.3);
