@@ -1,18 +1,15 @@
 "use client";
 
-import {useRouter} from "next/navigation";
+import {useRouter} from "@/navigation";
+import {useTranslations} from "next-intl";
 
 import {useUnit} from "@/app/providers";
 
 import styles from "./search-form.module.css";
 
-const SearchForm = ({
-  withButton = true,
-}: {
-  withButton?: boolean;
-} = {}) => {
+const SearchForm = ({withButton = true}: {withButton?: boolean}) => {
   const router = useRouter();
-
+  const t = useTranslations();
   const {unit} = useUnit();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -39,12 +36,12 @@ const SearchForm = ({
         type="text"
         name="city"
         required
-        placeholder="Enter city or ZIP code"
+        placeholder={t("searchForm.placeholder")}
         className={styles.searchInput}
       />
       {withButton && (
         <button type="submit" className={styles.searchButton}>
-          Search
+          {t("searchForm.buttonText")}
         </button>
       )}
     </form>

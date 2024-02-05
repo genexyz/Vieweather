@@ -1,4 +1,7 @@
+"use client";
+
 import {WeatherApiResponse, WeatherForecast} from "@/types";
+import {useFormatter, useTranslations} from "next-intl";
 
 import {
   capitalizeFirstLetter,
@@ -18,6 +21,7 @@ const getDailyForecasts = (
   currentDate: string,
 ) => {
   const days: {[key: string]: WeatherForecast[]} = {};
+
   forecasts.forEach((forecast) => {
     const day = forecast.dt_txt.split(" ")[0]; // Get date as 'YYYY-MM-DD'
     if (!days[day]) days[day] = [];
@@ -66,6 +70,7 @@ const WeatherChart = ({
   city: string;
   unit: Unit;
 }) => {
+  const t = useTranslations();
   const currentWeather = weatherData.list[0];
   const currentDate = new Date().toISOString().split("T")[0]; // Get current date as 'YYYY-MM-DD'
   const dailyForecasts = getDailyForecasts(
@@ -73,13 +78,24 @@ const WeatherChart = ({
     currentDate,
   );
 
+  const format = useFormatter();
+
   return (
     <div className={styles.weatherChart}>
       <div className={styles.currentWeather}>
         <div className={styles.currentWeatherHeader}>
           <div className={styles.currentWeatherTitle}>
             <h2>{capitalizeFirstLetterPerWord(city)}</h2>
-            <p>{new Date(currentWeather.dt * 1000).toLocaleString("en-US")}</p>
+            <p>
+              {capitalizeFirstLetter(
+                format.dateTime(new Date(currentWeather.dt * 1000), {
+                  weekday: "long",
+                  day: "numeric",
+                  month: "long",
+                  timeZone: "UTC",
+                }),
+              )}
+            </p>
           </div>
           <div className={styles.currentWeatherDetail}>
             <h3
@@ -95,7 +111,7 @@ const WeatherChart = ({
                 {capitalizeFirstLetter(currentWeather.weather[0].description)}
               </p>
               <p className={styles.currentWeatherDetailFeelsLike}>
-                Feels like:{" "}
+                {t("forecast.feelsLike")}:{" "}
                 <span
                   className={`${styles.temperature} ${styles[getTemperatureRangeClass(currentWeather.main.feels_like, unit)]}`}
                 >
@@ -110,15 +126,21 @@ const WeatherChart = ({
         <div className={styles.currentWeatherExtras}>
           <div>
             <PressureIcon className="icon" />
-            <p>Pressure: {currentWeather.main.pressure} hPa</p>
+            <p>
+              {t("forecast.pressure")}: {currentWeather.main.pressure} hPa
+            </p>
           </div>
           <div>
             <Humiditycon className="icon" />
-            <p>Humidity: {currentWeather.main.humidity}%</p>
+            <p>
+              {t("forecast.humidity")}: {currentWeather.main.humidity}%
+            </p>
           </div>
           <div>
             <WindIcon className="icon" />
-            <p>Wind: {currentWeather.wind.speed} m/s</p>
+            <p>
+              {t("forecast.wind")}: {currentWeather.wind.speed} m/s
+            </p>
           </div>
         </div>
       </div>
@@ -127,11 +149,14 @@ const WeatherChart = ({
         {dailyForecasts.map((forecast) => (
           <div key={forecast.dt} className={styles.forecastDay}>
             <p className={styles.date}>
-              {new Date(forecast.dt * 1000).toLocaleDateString("en-US", {
-                weekday: "long",
-                day: "numeric",
-                month: "short",
-              })}
+              {capitalizeFirstLetterPerWord(
+                format.dateTime(new Date(forecast.dt * 1000), {
+                  weekday: "long",
+                  day: "numeric",
+                  month: "short",
+                  timeZone: "UTC",
+                }),
+              )}
             </p>
             <div className={styles.weatherIcon}>
               <WeatherIcon code={forecast.weather[0].id} />
@@ -171,6 +196,7 @@ const WeatherChart = ({
                     weekday: "long",
                     day: "numeric",
                     month: "short",
+                    timeZone: "UTC",
                   })}
                 </p>
                 <p>{forecast.weather[0].main}</p>

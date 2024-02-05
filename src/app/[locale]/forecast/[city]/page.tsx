@@ -1,5 +1,6 @@
-import {redirect} from "next/navigation";
+import {redirect} from "@/navigation";
 import {GeocodingApiResponse, WeatherApiResponse} from "@/types";
+import {getTranslations, unstable_setRequestLocale} from "next-intl/server";
 
 import {OPENWEATHER_KEY} from "@/lib/utils";
 import WeatherChart from "@/components/weather-chart";
@@ -39,9 +40,12 @@ const Page = async ({
   params,
   searchParams,
 }: {
-  params: {city: string};
+  params: {city: string; locale: string};
   searchParams: {unit: Unit};
 }) => {
+  unstable_setRequestLocale(params.locale);
+  const t = await getTranslations();
+
   const parsedCity = params.city.replace(/%20/g, " ");
   const geocodingData = await fetchGeocodingData(parsedCity);
 
@@ -53,7 +57,7 @@ const Page = async ({
 
   return (
     <main className={styles.main}>
-      <h1>5 day forecast</h1>
+      <h1>{t("forecast.title")}</h1>
       <WeatherChart
         weatherData={weatherData}
         city={parsedCity}

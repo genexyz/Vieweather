@@ -1,7 +1,8 @@
 "use client";
 
 import {useEffect, useRef, useState} from "react";
-import {usePathname, useRouter} from "next/navigation";
+import {usePathname, useRouter} from "@/navigation";
+import {useTranslations} from "next-intl";
 
 import {Unit, useUnit} from "@/app/providers";
 
@@ -13,6 +14,7 @@ export const UnitToggle = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const pathname = usePathname();
+  const t = useTranslations();
 
   const updateUrlWithUnit = (newUnit: Unit) => {
     if (pathname.includes("/forecast/")) {
@@ -46,11 +48,11 @@ export const UnitToggle = () => {
   const unitLabel = (unit: Unit) => {
     switch (unit) {
       case "imperial":
-        return "Imperial";
+        return t("unitToggle.imperial");
       case "metric":
-        return "Metric";
+        return t("unitToggle.metric");
       case "standard":
-        return "Kelvin";
+        return t("unitToggle.kelvin");
       default:
         return "";
     }
@@ -64,7 +66,7 @@ export const UnitToggle = () => {
       <button
         className={styles.toggleButton}
         onClick={() => setMenuOpen((prev) => !prev)}
-        aria-label={`Current unit: ${unitLabel(unit)}`}
+        aria-label={t("unitToggle.currentUnit", {unit: unitLabel(unit)})}
       >
         {unitLabel(unit)}
         <span className={styles.arrow} />
@@ -75,19 +77,19 @@ export const UnitToggle = () => {
             onClick={() => changeUnit("imperial")}
             className={`${styles.menuItem} ${unit === "imperial" ? styles.active : ""}`}
           >
-            Imperial
+            {t("unitToggle.imperial")}
           </button>
           <button
             onClick={() => changeUnit("metric")}
             className={`${styles.menuItem} ${unit === "metric" ? styles.active : ""}`}
           >
-            Metric
+            {t("unitToggle.metric")}
           </button>
           <button
             onClick={() => changeUnit("standard")}
             className={`${styles.menuItem} ${unit === "standard" ? styles.active : ""}`}
           >
-            Kelvin
+            {t("unitToggle.kelvin")}
           </button>
         </div>
       )}

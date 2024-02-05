@@ -1,4 +1,5 @@
 import {useEffect, useRef, useState} from "react";
+import {useTranslations} from "next-intl";
 import {useTheme} from "next-themes";
 
 import ClearIcon from "./icons/clear";
@@ -8,6 +9,7 @@ import styles from "./mode-toggle.module.css";
 export const ModeToggle = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const {setTheme} = useTheme();
+  const t = useTranslations();
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const changeTheme = (theme: "dark" | "light" | "system") => {
@@ -37,7 +39,7 @@ export const ModeToggle = () => {
       <button
         className={styles.toggleButton}
         onClick={() => setMenuOpen((prev) => !prev)}
-        aria-label="Toggle theme"
+        aria-label={t("modeToggle.toggleTheme")}
       >
         <ClearIcon className={styles.sunIcon} />
         <MoonIcon className={styles.moonIcon} />
@@ -48,19 +50,19 @@ export const ModeToggle = () => {
             onClick={() => changeTheme("light")}
             className={styles.menuItem}
           >
-            Light
+            {t("modeToggle.light")}
           </button>
           <button
             onClick={() => changeTheme("dark")}
             className={styles.menuItem}
           >
-            Dark
+            {t("modeToggle.dark")}
           </button>
           <button
             onClick={() => changeTheme("system")}
             className={styles.menuItem}
           >
-            System
+            {t("modeToggle.system")}
           </button>
         </div>
       )}

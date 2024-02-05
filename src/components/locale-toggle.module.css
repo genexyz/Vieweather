@@ -1,4 +1,4 @@
-.unitToggle {
+.localeToggle {
   position: relative;
 }
 
@@ -25,7 +25,7 @@
   transform: rotate(45deg);
 }
 
-.unitToggle.open .arrow {
+.localeToggle.open .arrow {
   transform: rotate(-135deg);
 }
 

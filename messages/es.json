@@ -1,0 +1,42 @@
+{
+  "home": {
+    "title": "Vieweather",
+    "description": "Obtén el pronóstico del clima de los próximos 5 días para tu ciudad."
+  },
+  "navbar": {
+    "title": "Vieweather"
+  },
+  "forecast": {
+    "title": "Pronóstico del Clima para 5 Días",
+    "pressure": "Presión",
+    "humidity": "Humedad",
+    "wind": "Viento",
+    "feelsLike": "Sensación Térmica"
+  },
+  "notFound": {
+    "title": "Página No Encontrada",
+    "description": "Lo sentimos, no se puede encontrar la ubicación que buscas",
+    "goBack": "Volver a Inicio"
+  },
+  "modeToggle": {
+    "toggleTheme": "Cambiar Tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  },
+  "unitToggle": {
+    "currentUnit": "Unidad Actual: {unit}",
+    "imperial": "Imperial",
+    "metric": "Métrico",
+    "kelvin": "Kelvin"
+  },
+  "searchForm": {
+    "placeholder": "Ingresa una ciudad o código postal",
+    "buttonText": "Buscar"
+  },
+  "localeToggle": {
+    "currentLocale": "Idioma actual: {locale}",
+    "en": "English",
+    "es": "Español"
+  }
+}

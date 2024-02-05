@@ -82,10 +82,3 @@ a {
   height: 2em;
   fill: currentColor;
 }
-
-[data-theme="dark"] {
-  .root-body {
-    background: var(--gradient-background-color);
-    color: var(--text-color);
-  }
-}

@@ -1,0 +1,42 @@
+{
+  "home": {
+    "title": "Vieweather",
+    "description": "Get the latest 5-day weather forecast for your city."
+  },
+  "navbar": {
+    "title": "Vieweather"
+  },
+  "forecast": {
+    "title": "5-Day Weather Forecast",
+    "pressure": "Pressure",
+    "humidity": "Humidity",
+    "wind": "Wind",
+    "feelsLike": "Feels like"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "Sorry, the location you are looking for does not exist",
+    "goBack": "Go Back Home"
+  },
+  "modeToggle": {
+    "toggleTheme": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "unitToggle": {
+    "currentUnit": "Current unit: {unit}",
+    "imperial": "Imperial",
+    "metric": "Metric",
+    "kelvin": "Kelvin"
+  },
+  "searchForm": {
+    "placeholder": "Enter city or ZIP code",
+    "buttonText": "Search"
+  },
+  "localeToggle": {
+    "currentLocale": "Current locale: {locale}",
+    "en": "English",
+    "es": "Español"
+  }
+}
