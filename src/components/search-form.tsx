@@ -37,6 +37,8 @@ const SearchForm = ({withButton = true}: {withButton?: boolean}) => {
         name="city"
         required
         placeholder={t("searchForm.placeholder")}
+        aria-label={t("searchForm.ariaLabel")}
+        aria-required="true"
         className={styles.searchInput}
       />
       {withButton && (

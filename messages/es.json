@@ -32,7 +32,8 @@
   },
   "searchForm": {
     "placeholder": "Ingresa una ciudad o código postal",
-    "buttonText": "Buscar"
+    "buttonText": "Buscar",
+    "ariaLabel": "Buscar Clima por ciudad o código postal"
   },
   "localeToggle": {
     "currentLocale": "Idioma actual: {locale}",

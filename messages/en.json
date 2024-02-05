@@ -32,7 +32,8 @@
   },
   "searchForm": {
     "placeholder": "Enter city or ZIP code",
-    "buttonText": "Search"
+    "buttonText": "Search",
+    "ariaLabel": "Search Weather for a City or ZIP Code"
   },
   "localeToggle": {
     "currentLocale": "Current locale: {locale}",
