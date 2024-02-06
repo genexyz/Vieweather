@@ -41,6 +41,7 @@
     "es": "Español"
   },
   "tooltip": {
+    "title": "Search Tips",
     "citySearch": "City Search",
     "cityTooltipText": "Type the city name, optionally followed by the country code (e.g., 'Paris' or 'Paris,FR').",
     "cityUSStateTooltipText": "For US cities, you may optionally include the state. If you include the state, the country code is also required (e.g., 'Arlington,TX,US').",

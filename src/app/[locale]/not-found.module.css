@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
   margin-top: 72px;
-  height: calc(100vh - 72px);
+  height: calc(90vh - 72px);
   padding: 0 2rem;
 }
 
@@ -43,4 +44,34 @@
 .backHomeButton:focus {
   outline: none;
   box-shadow: 0 0 0 3px var(--text-color-light);
+}
+
+.tooltipContainer {
+  margin-top: 2rem;
+  text-align: center;
+  max-width: 600px;
+  border: solid 2px var(--accent-color);
+  padding: 1rem;
+  border-radius: 2rem;
+  color: var(--text-color-light);
+  background-color: color-mix(in srgb, var(--background-color), #0000 50%);
+}
+
+.tooltipTitle {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+}
+
+.tooltipContainer p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.tooltipContainer h4 {
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+  text-align: left;
+  font-size: 1.2rem;
 }
