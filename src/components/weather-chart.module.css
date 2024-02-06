@@ -13,15 +13,24 @@
 }
 
 .temperatureCold {
-  color: var(--temperature-color-cold) !important;
+  background: var(--temperature-color-cold);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .temperatureNormal {
-  color: var(--temperature-color-normal) !important;
+  background: var(--temperature-color-normal);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .temperatureHot {
-  color: var(--temperature-color-hot) !important;
+  background: var(--temperature-color-hot);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .currentWeather {
@@ -101,6 +110,11 @@
 
 .currentWeatherExtras svg {
   margin-right: 1rem;
+}
+
+.extrasNumber {
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
 .temperature {

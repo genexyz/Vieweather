@@ -1,6 +1,7 @@
 "use client";
 
 import {useEffect, useRef, useState} from "react";
+import Image from "next/image";
 import {useSearchParams} from "next/navigation";
 import {locales, usePathname, useRouter} from "@/navigation";
 import {useLocale, useTranslations} from "next-intl";
@@ -61,6 +62,16 @@ export const LocaleToggle = () => {
           locale: localeLabel(currentLocale),
         })}
       >
+        <Image
+          src={`/${currentLocale === "en" ? "us" : "es"}.svg`}
+          alt={
+            currentLocale === "en"
+              ? "English Language - US flag"
+              : "Spanish Language - ES flag"
+          }
+          width={19}
+          height={19}
+        />
         {localeLabel(currentLocale)}
         <span className={styles.arrow} />
       </button>
@@ -74,6 +85,16 @@ export const LocaleToggle = () => {
                 currentLocale === locale ? styles.active : ""
               }`}
             >
+              <Image
+                src={`/${locale === "en" ? "us" : "es"}.svg`}
+                alt={
+                  locale === "en"
+                    ? "English Language - US flag"
+                    : "Spanish Language - ES flag"
+                }
+                width={19}
+                height={19}
+              />
               {localeLabel(locale)}
             </button>
           ))}

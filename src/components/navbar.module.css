@@ -33,7 +33,7 @@
 .logoIcon {
   width: 2rem;
   height: 2rem;
-  fill: var(--temperature-color-hot);
+  fill: var(--accent-color);
 }
 
 .togglers {

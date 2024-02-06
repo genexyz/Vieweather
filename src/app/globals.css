@@ -7,9 +7,9 @@
   );
   --text-color: #121212;
   --text-color-light: #333;
-  --temperature-color-hot: #e53e3e;
-  --temperature-color-cold: #007bff;
-  --temperature-color-normal: #007618;
+  --temperature-color-hot: linear-gradient(to right, #ff5e00, #f02727);
+  --temperature-color-cold: linear-gradient(to right, #00c8ff, #007bff);
+  --temperature-color-normal: linear-gradient(to right, #1a9673, #007618);
   --accent-color: #e53e3e;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --wide-shadow-color: rgba(0, 0, 0, 0.2);
@@ -25,9 +25,9 @@ html[data-theme="light"] {
   );
   --text-color: #121416d8;
   --text-color-light: #333;
-  --temperature-color-hot: #e53e3e;
-  --temperature-color-cold: #007bff;
-  --temperature-color-normal: #007618;
+  --temperature-color-hot: linear-gradient(to right, #ff5e00, #f02727);
+  --temperature-color-cold: linear-gradient(to right, #00c8ff, #007bff);
+  --temperature-color-normal: linear-gradient(to right, #1a9673, #007618);
   --accent-color: #e53e3e;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --wide-shadow-color: rgba(0, 0, 0, 0.2);
@@ -44,9 +44,9 @@ html[data-theme="dark"] {
   );
   --text-color: #fff;
   --text-color-light: #d2d2d2;
-  --temperature-color-hot: #e53e3e;
-  --temperature-color-cold: #007bff;
-  --temperature-color-normal: #007618;
+  --temperature-color-hot: linear-gradient(to right, #ff5e00, #f02727);
+  --temperature-color-cold: linear-gradient(to right, #00c8ff, #007bff);
+  --temperature-color-normal: linear-gradient(to right, #1a9673, #007618);
   --accent-color: #e53e3e;
   --shadow-color: rgba(255, 255, 255, 0.1);
   --wide-shadow-color: rgba(255, 255, 255, 0.2);

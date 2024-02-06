@@ -127,19 +127,30 @@ const WeatherChart = ({
           <div>
             <PressureIcon className="icon" />
             <p>
-              {t("forecast.pressure")}: {currentWeather.main.pressure} hPa
+              {t("forecast.pressure")}:{" "}
+              <span className={styles.extrasNumber}>
+                {currentWeather.main.pressure}
+              </span>{" "}
+              hPa
             </p>
           </div>
           <div>
             <Humiditycon className="icon" />
             <p>
-              {t("forecast.humidity")}: {currentWeather.main.humidity}%
+              {t("forecast.humidity")}:{" "}
+              <span className={styles.extrasNumber}>
+                {currentWeather.main.humidity}
+              </span>
+              %
             </p>
           </div>
           <div>
             <WindIcon className="icon" />
             <p>
-              {t("forecast.wind")}: {currentWeather.wind.speed}{" "}
+              {t("forecast.wind")}:{" "}
+              <span className={styles.extrasNumber}>
+                {currentWeather.wind.speed}
+              </span>{" "}
               {unit === "metric" ? "m/s" : "mph"}
             </p>
           </div>
@@ -193,12 +204,14 @@ const WeatherChart = ({
               </div>
               <div className={styles.dateMainMobile}>
                 <p className={styles.date}>
-                  {new Date(forecast.dt * 1000).toLocaleDateString("en-US", {
-                    weekday: "long",
-                    day: "numeric",
-                    month: "short",
-                    timeZone: "UTC",
-                  })}
+                  {capitalizeFirstLetterPerWord(
+                    format.dateTime(new Date(forecast.dt * 1000), {
+                      weekday: "long",
+                      day: "numeric",
+                      month: "short",
+                      timeZone: "UTC",
+                    }),
+                  )}
                 </p>
                 <p>{forecast.weather[0].main}</p>
               </div>
