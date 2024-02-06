@@ -18,7 +18,7 @@
 
 .navbarForm .searchInput {
   padding: 0.5rem 1rem;
-  border: 2px solid var(--text-color);
+  border: 1px solid var(--text-color);
 }
 
 .searchInput:focus {

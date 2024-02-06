@@ -1,0 +1,17 @@
+.humidityIcon {
+  --humidity: 50%;
+}
+
+.humidityIconBackground {
+  fill: currentColor;
+}
+
+.humidityIconForeground {
+  fill: rgb(0, 153, 255);
+  clip-path: polygon(
+    0% calc(100% - var(--humidity)),
+    100% calc(100% - var(--humidity)),
+    100% 100%,
+    0% 100%
+  );
+}

@@ -5,9 +5,9 @@ import {useTranslations} from "next-intl";
 
 import LogoIcon from "@/components/icons/logo";
 import SearchForm from "@/components/search-form";
-import {LocaleToggle} from "@/components/togglers/locale-toggle";
-import {ModeToggle} from "@/components/togglers/mode-toggle";
-import {UnitToggle} from "@/components/togglers/unit-toggle";
+import LocaleToggle from "@/components/togglers/locale-toggle";
+import ThemeToggle from "@/components/togglers/theme-toggle";
+import UnitToggle from "@/components/togglers/unit-toggle";
 
 import styles from "./navbar.module.css";
 
@@ -32,7 +32,7 @@ const Navbar = () => {
         <div className={styles.togglers}>
           <LocaleToggle />
           <UnitToggle />
-          <ModeToggle />
+          <ThemeToggle />
         </div>
       </div>
     </nav>

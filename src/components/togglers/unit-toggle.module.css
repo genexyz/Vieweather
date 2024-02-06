@@ -4,7 +4,7 @@
 
 .toggleButton {
   padding: 0.5rem 1rem;
-  border: 1px solid var(--text-color-light);
+  border: 1px solid color-mix(in srgb, var(--text-color-light), #0000 50%);
   border-radius: 5px;
   background-color: var(--background-color);
   cursor: pointer;
@@ -37,7 +37,7 @@
   border: 1px solid var(--text-color-light);
   border-radius: 6px;
   margin-top: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.25rem;
   z-index: 1000;
   width: 100%;
 }
@@ -50,7 +50,11 @@
   text-align: left;
   background: none;
   border: none;
+  align-items: center;
+  gap: 0.75rem;
   font-size: 0.9rem;
+  border-radius: 0.5em;
+  transition: background-color 0.3s ease;
 }
 
 .menuItem:hover {

@@ -18,7 +18,7 @@
     "description": "Lo sentimos, no se puede encontrar la ubicación que buscas",
     "goBack": "Volver a Inicio"
   },
-  "modeToggle": {
+  "themeToggle": {
     "toggleTheme": "Cambiar Tema",
     "light": "Claro",
     "dark": "Oscuro",

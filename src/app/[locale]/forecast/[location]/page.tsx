@@ -33,9 +33,6 @@ const fetchZipGeocodingData = async (zip: string) => {
   );
   const data: GeocodingZipApiResponse = await response.json();
 
-  console.log(zip);
-  console.log(data);
-
   if (!data.lat || !data.lon) {
     redirect("/404");
   }

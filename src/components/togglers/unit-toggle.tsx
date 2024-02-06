@@ -9,7 +9,7 @@ import {useUnit} from "@/app/providers";
 
 import styles from "./unit-toggle.module.css";
 
-export const UnitToggle = () => {
+const UnitToggle = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const {unit, setUnit} = useUnit();
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -97,3 +97,5 @@ export const UnitToggle = () => {
     </div>
   );
 };
+
+export default UnitToggle;

@@ -135,7 +135,10 @@ const WeatherChart = ({
             </p>
           </div>
           <div>
-            <Humiditycon className="icon" />
+            <Humiditycon
+              className="icon"
+              humidityPercentage={currentWeather.main.humidity.toString()}
+            />
             <p>
               {t("forecast.humidity")}:{" "}
               <span className={styles.extrasNumber}>

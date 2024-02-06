@@ -1,9 +1,9 @@
 :root {
   --background-color: #fff;
-  --gradient-background-color: linear-gradient(
-    to top,
-    #f3e7e9 0%,
-    #e3eeff 100%
+  --gradient-background-color: radial-gradient(
+    ellipse 80% 80% at 50% -20%,
+    rgba(255, 255, 255, 0.3),
+    #bdf1f8
   );
   --text-color: #121212;
   --text-color-light: #333;
@@ -18,10 +18,10 @@
 
 html[data-theme="light"] {
   --background-color: #fff;
-  --gradient-background-color: linear-gradient(
-    to top,
-    #f3e7e9 0%,
-    #e3eeff 100%
+  --gradient-background-color: radial-gradient(
+    ellipse 80% 80% at 50% -20%,
+    rgba(255, 255, 255, 0.3),
+    #bdf1f8
   );
   --text-color: #121416d8;
   --text-color-light: #333;
@@ -36,11 +36,10 @@ html[data-theme="light"] {
 
 html[data-theme="dark"] {
   --background-color: #121212;
-  --gradient-background-color: linear-gradient(
-    to top,
-    #343434 0%,
-    #292626 50%,
-    #161616 100%
+  --gradient-background-color: radial-gradient(
+    ellipse 80% 80% at 50% -20%,
+    rgba(120, 119, 198, 0.3),
+    hsla(0, 0%, 100%, 0)
   );
   --text-color: #fff;
   --text-color-light: #d2d2d2;

@@ -7,11 +7,11 @@ import {useTheme} from "next-themes";
 import ClearIcon from "@/components/icons/clear";
 import MoonIcon from "@/components/icons/moon";
 
-import styles from "./mode-toggle.module.css";
+import styles from "./theme-toggle.module.css";
 
-export const ModeToggle = () => {
+const ThemeToggle = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const {setTheme} = useTheme();
+  const {theme, setTheme} = useTheme();
   const t = useTranslations();
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -38,11 +38,11 @@ export const ModeToggle = () => {
   }, [wrapperRef]);
 
   return (
-    <div className={styles.modeToggle} ref={wrapperRef}>
+    <div className={styles.themeToggle} ref={wrapperRef}>
       <button
         className={styles.toggleButton}
         onClick={() => setMenuOpen((prev) => !prev)}
-        aria-label={t("modeToggle.toggleTheme")}
+        aria-label={t("themeToggle.toggleTheme")}
       >
         <ClearIcon className={styles.sunIcon} />
         <MoonIcon className={styles.moonIcon} />
@@ -51,24 +51,32 @@ export const ModeToggle = () => {
         <div className={styles.dropdownMenu}>
           <button
             onClick={() => changeTheme("light")}
-            className={styles.menuItem}
+            className={`${styles.menuItem} ${
+              theme === "light" ? styles.active : ""
+            }`}
           >
-            {t("modeToggle.light")}
+            {t("themeToggle.light")}
           </button>
           <button
             onClick={() => changeTheme("dark")}
-            className={styles.menuItem}
+            className={`${styles.menuItem} ${
+              theme === "dark" ? styles.active : ""
+            }`}
           >
-            {t("modeToggle.dark")}
+            {t("themeToggle.dark")}
           </button>
           <button
             onClick={() => changeTheme("system")}
-            className={styles.menuItem}
+            className={`${styles.menuItem} ${
+              theme === "system" ? styles.active : ""
+            }`}
           >
-            {t("modeToggle.system")}
+            {t("themeToggle.system")}
           </button>
         </div>
       )}
     </div>
   );
 };
+
+export default ThemeToggle;

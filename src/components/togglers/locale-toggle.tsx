@@ -8,7 +8,7 @@ import {useLocale, useTranslations} from "next-intl";
 
 import styles from "./locale-toggle.module.css";
 
-export const LocaleToggle = () => {
+const LocaleToggle = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
   const t = useTranslations();
@@ -103,3 +103,5 @@ export const LocaleToggle = () => {
     </div>
   );
 };
+
+export default LocaleToggle;
