@@ -11,6 +11,8 @@
 .main h1 {
   font-size: 3rem;
   margin-bottom: 2rem;
+  padding: 0 1rem;
+  text-align: center;
 }
 
 @media (max-width: 768px) {

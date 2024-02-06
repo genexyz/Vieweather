@@ -22,7 +22,7 @@ const SearchForm = ({withButton = true}: {withButton?: boolean}) => {
     const isInput = input instanceof HTMLInputElement;
     if (!isInput || input == null) return;
 
-    const location = input.value;
+    const location = input.value.toLowerCase().trim();
 
     router.push(`/forecast/${encodeURIComponent(location)}?unit=${unit}`);
   };
@@ -37,6 +37,7 @@ const SearchForm = ({withButton = true}: {withButton?: boolean}) => {
           type="text"
           name="location"
           required
+          autoFocus
           placeholder={t("searchForm.placeholder")}
           aria-label={t("searchForm.ariaLabel")}
           aria-required="true"

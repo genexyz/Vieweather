@@ -29,7 +29,7 @@
 .searchButton {
   padding: 1rem 1.5rem;
   background-color: var(--accent-color);
-  color: var(--background-color);
+  color: #fff;
   font-weight: bold;
   font-size: 1rem;
   border: none;
@@ -45,7 +45,7 @@
   background-color: color-mix(
     in srgb,
     var(--accent-color),
-    var(--text-color) 50%
+    var(--text-color) 20%
   );
 }
 

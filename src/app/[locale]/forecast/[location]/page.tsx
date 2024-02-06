@@ -16,7 +16,6 @@ import styles from "./page.module.css";
 const fetchCityGeocodingData = async (city: string) => {
   const response = await fetch(
     `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${OPENWEATHER_KEY}`,
-    {next: {revalidate: 1800}},
   );
   const data: GeocodingCityApiResponse = await response.json();
 
