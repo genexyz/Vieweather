@@ -1,15 +1,17 @@
 import {MetadataRoute} from "next";
 
+import {SITE_URL} from "@/lib/utils";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: process.env.NEXT_PUBLIC_APP_URL as string,
+      url: SITE_URL,
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,
     },
     {
-      url: `${process.env.NEXT_PUBLIC_APP_URL}/forecast`,
+      url: `${SITE_URL}/forecast`,
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 1,

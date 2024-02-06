@@ -7,6 +7,8 @@ import SnowIcon from "@/components/icons/snow";
 import ThunderstormIcon from "@/components/icons/thunderstorm";
 
 export const OPENWEATHER_KEY = process.env.OPENWEATHER_KEY;
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
 export const weatherIconMap: {[key: number]: React.ElementType} = {
   // Thunderstorm
