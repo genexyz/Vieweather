@@ -176,7 +176,7 @@ const WeatherChart = ({
             <div className={styles.weatherIcon}>
               <WeatherIcon code={forecast.weather[0].id} />
             </div>
-            <p>{forecast.weather[0].main}</p>
+            <p>{capitalizeFirstLetter(forecast.weather[0].description)}</p>
             <p className={styles.temperature}>
               <span
                 className={
@@ -216,7 +216,7 @@ const WeatherChart = ({
                     }),
                   )}
                 </p>
-                <p>{forecast.weather[0].main}</p>
+                <p>{capitalizeFirstLetter(forecast.weather[0].description)}</p>
               </div>
             </div>
             <div className={styles.temperatureMobile}>

@@ -40,9 +40,14 @@ const fetchZipGeocodingData = async (zip: string) => {
   return data;
 };
 
-const fetchWeatherData = async (lat: number, lon: number, unit: Unit) => {
+const fetchWeatherData = async (
+  lat: number,
+  lon: number,
+  unit: Unit,
+  locale: string,
+) => {
   const response = await fetch(
-    `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${OPENWEATHER_KEY}&units=${unit}`,
+    `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${OPENWEATHER_KEY}&units=${unit}&lang=${locale}`,
     {next: {revalidate: 900}},
   );
   const data: WeatherApiResponse = await response.json();
@@ -83,6 +88,7 @@ const Page = async ({
     geocodingData.lat,
     geocodingData.lon,
     searchParams.unit,
+    params.locale,
   );
 
   return (
